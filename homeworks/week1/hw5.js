@@ -5,29 +5,23 @@ function join(arr, concatStr) {
 	var newArr = [];
 	while(i < arr.length-1){
 		newArr.push(arr[i]+concatStr);
-		i++
-	}
-	return newArr;
-
+		i++;
+	};
 	//到這一步就已經得到 newArr = [a!,b!]  
 	//最後一個因為不需要分隔符號，另外放上去就可
 	//要完成的任務： newArr[0]+newArr[1]+...+newArr[newArr.length-1]+arr[arr.length-1]
-//	var j=0;
-//	var totalStr = "";
-//	while(j < newArr.length){
-//		totalStr += newArr[j]
-//	}
-	console.log(newArr[0]+newArr[1]);
+	var j=0;
+	var totalStr = "";
+	while(j < newArr.length){
+		totalStr += newArr[j].toString();
+	}
+	return totalStr;
 }
 
 //test case
 join(["a", "b", "c"], "!") //正確回傳值：a!b!c
 join(["a", 1, "b", 2, "c", 3], ',') //正確回傳值：a,1,b,2,c,3
 join([1, 2, 3], ''); //正確回傳值：123
-
-//array 元素相加測試-->通過！
-var testArr = ["h","el","lo"]
-console.log(testArr[0]+testArr[1])
 
 
 //自己做repeat 
