@@ -1,5 +1,4 @@
-//自己做join， 會接收兩個參數：一個陣列跟一個字串，題目預設(str, con~)應該是錯的
-//join最後結果是字串！！
+//自己做join， 會接收兩個參數：一個陣列跟一個字串
 function join(arr, concatStr) {
 	var i = 0;
 	var newArr = [];
@@ -7,15 +6,14 @@ function join(arr, concatStr) {
 		newArr.push(arr[i]+concatStr);
 		i++;
 	};
-	//到這一步就已經得到 newArr = [a!,b!]  
-	//最後一個因為不需要分隔符號，另外放上去就可
-	//要完成的任務： newArr[0]+newArr[1]+...+newArr[newArr.length-1]+arr[arr.length-1]
+	
 	var j=0;
 	var totalStr = "";
 	while(j < newArr.length){
 		totalStr += newArr[j].toString();
+		j++ //(修改)之前忘記j++了！！！ 產生無窮迴圈！以後改用for寫起來比較不會忘
 	}
-	return totalStr;
+	return totalStr+arr[arr.length-1];
 }
 
 //test case
@@ -25,8 +23,6 @@ join([1, 2, 3], ''); //正確回傳值：123
 
 
 //自己做repeat 
-/*-done
-
 function repeat(str, times) {
 	var i = 0;
 	var newArr = [];
@@ -34,9 +30,8 @@ function repeat(str, times) {
 		newArr.push(str);
 		i++;
 	}
-	return newArr.join("");  //不知道這邊用join算不算偷吃步lol
+	return newArr.join("");
 }
 
 console.log(repeat('yoyo', 2))
 console.log(repeat('a', 5))
--*/
