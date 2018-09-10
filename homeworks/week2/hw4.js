@@ -1,4 +1,4 @@
-function isPalindromes(str) {
+function isPalindromes(s) {
   
 }
 
