@@ -29,11 +29,16 @@ function add(a, b) {
   	}else {
   		dArr += cArr[i]-10
   		cArr[i-1] = cArr[i-1]+1 //[關鍵句！]直接讓新的值取代原來位置的舊的值即可
+      if(i === 0){
+        dArr +=1; //注意最前面最前面要進一位！
+      }
   	}
   }
   
   return dArr.split("").reverse().join("") 
 
 }
+
+add(9999, 1)
 
 module.exports = add;
