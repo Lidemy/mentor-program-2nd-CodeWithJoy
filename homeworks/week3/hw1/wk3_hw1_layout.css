@@ -1,0 +1,144 @@
+body{
+	display: block;
+	margin: 0;
+   	font-family: sans-serif;
+}
+.nav{
+	display: flex;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background-color: #333A40;
+	list-style-type: none;
+	padding: 0px 4px 0px 10px;
+	font-size: 20px;
+	color: #ffffff;
+}
+
+.a__nav{
+	list-style: none;
+	text-decoration: none;
+	color: #A3A5A7;
+	transition: 0.2s;
+}
+.a__nav:hover{
+	color: white;
+}
+.nav__link{
+	position: relative;
+	right: 8px;
+	display: inline-block;
+	font-size: 16px;
+	color: #A3A5A7;
+	padding-right: 5px;
+
+}
+
+.nav__link:hover{
+	color: white;
+}
+
+.btn{
+	border-radius: 4px;
+	text-align: center;
+
+}
+.btn:hover{
+	cursor: pointer;
+}
+
+.p{
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.greeting{
+	margin-top: 50px;
+    background: #E9FAFF;
+}
+.wrapper{
+	max-width: 960px;
+    margin: 0 auto;
+    padding: 42px 25px;
+}
+
+.greeting__title{
+	font-size: 72px;
+}
+.btn__greeting{
+	padding: 15px 30px;
+    font-size: 20px;
+	background-color: #1F7EF6;
+	color: #ffffff;
+	transition: 0.3s;
+
+}
+.btn__greeting:hover{
+	background-color: #2133A2;
+}
+
+.main{
+	max-width: 960px;
+    margin: 0 auto;
+    padding: 42px 25px;
+}
+
+.main__block{
+	display: inline-block;
+	max-width: 32%;
+	margin-top: 4px;
+	min-width: 202px;
+
+}
+
+.main__block:not(:first-child){
+	margin-left: 8px;
+}
+
+.main__block__title{
+	margin-bottom: 20px;
+	font-size: 36px;
+}
+
+/*加了下面那一段反而跑版＠＠*/
+/*.main__block__content{
+	display: block;
+	font-size: 16px;
+	height: 107px;
+	max-width: 307px;
+}*/
+
+.btn__main{
+	font-size: 16px;
+	margin-top: 4px;
+	margin-bottom: 50px;
+	padding: 10px 16px;
+	color: #ffffff;
+	background-color: #939393;
+	transition: 0.3s;
+}
+.btn__main:hover{
+	background-color: #6D6D6D;
+}
+
+.footer{
+  	display: block;
+ 	width:100%
+  	margin: 0px auto;
+	height:22px;
+	padding-top:16px;
+	padding-bottom:0px;
+	border-top: 1px solid #939393;
+
+}
+@media screen and (max-width: 750px){
+.main__block{
+	display: block;
+	max-width: 85%;
+
+}
