@@ -22,7 +22,7 @@ html裏面，每個標籤都可以視為一個「盒子」，佔有空間，而�
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 * static: position預設值，不特別定位，元素該在哪就在哪。
 * relative: 相對位置，相對於原來該在哪的位置做偏移，有top, right, bottom, left等屬性
-* absolute: 對父元素做同於relative的定位。
+* absolute: 找到「position不是 static」的上層元素做定位，如果上層所有元素都是static，則對<body>左上角的點做定位。
 * fixted: 對視窗的左上角一點做定位，在滾動網頁時有固定效果。
 
 
