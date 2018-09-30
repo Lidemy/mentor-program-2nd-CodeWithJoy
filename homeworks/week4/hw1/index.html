@@ -10,40 +10,50 @@
 <body class="body">
 	<div class="outer">
 		<div class="main">
-			<div class="main__show"></div>
+			<div class="main__show">
+				<p id="show">0</p>
+			</div>
 			<div class="main__content">
 				<div class="main__btn">
-					<div class="main__btnContent num">AC</div>
+					<div class="main__btnContent num ac">AC</div>
 					<div class="space"></div>
-					<div class="main__btnContent num">÷</div>
+					<div class="main__btnContent num devide">÷</div>
 				</div>
 				<div class="main__btn">
-					<div class="main__btnContent num">7</div>
-					<div class="main__btnContent num">8</div>
-					<div class="main__btnContent num">9</div>
-					<div class="main__btnContent num">×</div>
+					<div class="main__btnContent num seven">7</div>
+					<div class="main__btnContent num eight">8</div>
+					<div class="main__btnContent num nine">9</div>
+					<div class="main__btnContent num time">×</div>
 				</div>
 				<div class="main__btn">
-					<div class="main__btnContent num">4</div>
-					<div class="main__btnContent num">5</div>
-					<div class="main__btnContent num">6</div>
-					<div class="main__btnContent num">-</div>
+					<div class="main__btnContent num four">4</div>
+					<div class="main__btnContent num five">5</div>
+					<div class="main__btnContent num six">6</div>
+					<div class="main__btnContent num minus">-</div>
 				</div>
 				<div class="main__btn">
-					<div class="main__btnContent num">1</div>
-					<div class="main__btnContent num">2</div>
-					<div class="main__btnContent num">3</div>
-					<div class="main__btnContent num">+</div>
+					<div class="main__btnContent num one">1</div>
+					<div class="main__btnContent num two">2</div>
+					<div class="main__btnContent num three">3</div>
+					<div class="main__btnContent num plus">+</div>
 				</div>
 				<div class="main__btn">
-					<div class="main__btnContent num">0</div>
-					<div class="main__btnContent num">.</div>
-					<div class="equal">=</div>
+					<div class="main__btnContent num zero">0</div>
+					<div class="main__btnContent num point">.</div>
+					<div id="equal" class="equal">=</div>
 				</div>
 
 			</div>
 		</div>
 	</div>
-	
+	<script>
+
+/*-- 不知為何用className一直選不到元素？ 用ID就可以！！？
+	var equal = document.querySelector('#equal');
+	equal.addEventListener("click", function(){
+	document.getElementByClassName('main__show').innerHTML = "hi";})
+--*/	
+	</script>
+	<script src="wk4hw1_cal.js"></script>	
 </body>
 </html>

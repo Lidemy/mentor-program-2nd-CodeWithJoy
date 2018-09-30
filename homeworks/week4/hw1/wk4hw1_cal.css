@@ -1,6 +1,8 @@
 .body{
 	background-color: lightgray;
+	font-family: Arial;
 }
+
 .outer{
 	background-color: white;
 	margin: 50px auto;
@@ -20,15 +22,22 @@
 	width: 540px;
 	height: 84px;
 
+}
 
+#show{
+	margin-top: 14px;
+	margin-right: 5px; 
+	font-size: 60px;
+	text-align: end;
 }
 .main__content{
 	text-align: center;
-	font-size: 30px;
+	font-size: 26px;
 	margin: 10px 12px;
 	margin-top: -10px;
 
 }
+
 .main__btn{
 	display: flex;
 
@@ -41,16 +50,18 @@
 	width: 262px;
 	height: 58px;
 	margin: 7px 6px;
-	padding: 10px 4px 0px 4px;
+	padding: 12px 4px 0px 4px;
 	box-sizing: border-box;
 	background-color: orange;
+
 }
 .main__btnContent{	
-	padding: 10px 4px 0px 4px;
+	padding: 12px 4px 0px 4px;
 	border: 1px solid #C0C0C0;
 	width: 126px;
 	height: 58px;
 	margin: 7px 6px;
 	box-sizing: border-box;
+	color: #777777;
 }
 
