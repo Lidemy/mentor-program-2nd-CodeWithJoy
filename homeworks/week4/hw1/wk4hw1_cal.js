@@ -4,7 +4,7 @@ var show = document.querySelector('#show');
 var count = [];
 
 //加減乘除等於
-var plus = document.querySelector('.plus')
+var plus = document.querySelector('.plus');
 plus.addEventListener('click', ()=>{
 	var showNum = parseInt(show.innerText);
 	count.push(showNum);
@@ -12,6 +12,9 @@ plus.addEventListener('click', ()=>{
 	show.innerText = '';
 	console.log(count);
 })
+
+
+
 var minus = document.querySelector('.minus')
 minus.addEventListener('click', ()=>{
 	var showNum = parseInt(show.innerText);
@@ -20,6 +23,7 @@ minus.addEventListener('click', ()=>{
 	show.innerText = '';
 	console.log(count);
 })
+
 
 var time = document.querySelector('.time')
 time.addEventListener('click', ()=>{
@@ -48,20 +52,11 @@ equal.addEventListener('click', ()=>{
 
 var ac= document.querySelector('.ac')
 ac.addEventListener('click', ()=>{
-		show.innerText = '0';
+		show.innerText = ''; //直接清空不歸0了
 		count = [];
 })
 
-	// for (var i = 0; i < count.length; i++) {
-	// 	count += count[i];
-	// }
-	// return count;
-	// var result = count.join("");
-	// console.log(result);
-
-
-
-/*--
+/*--步驟
 按plus:
 1.紀錄原showNum在某arr上，
 2.清空show的內容 //
@@ -70,10 +65,23 @@ ac.addEventListener('click', ()=>{
 --*/
 
 //數字原料
+document.querySelector('.zero').addEventListener("click", ()=>{
+		show.innerText +='0'
+})
 document.querySelector('.one').addEventListener("click", ()=>{
-
 		show.innerText +='1'
 })
+
+// 雖可利用下式把按AC產生的0清掉，但如此每次重新按1都會清空count值，沒找到解法。
+// document.querySelector('.one').addEventListener("click", ()=>{
+// 	if (show.innerText ='0') {
+// 		show.innerText ='';
+// 		show.innerText +='1'
+// 	}else{
+// 		show.innerText +='1'
+// 	}
+// })
+
 document.querySelector('.two').addEventListener("click", ()=>{
 		show.innerText += "2";
 
@@ -101,4 +109,5 @@ document.querySelector('.nine').addEventListener("click", ()=>{
 })
 
 
+add = (a,b) => a+b;
 

@@ -18,54 +18,68 @@
 			<div class="main__question">
 				<h3>電子郵件地址 *</h3>
 				<p></p>
-				<input type="text" placeholder="你的電子郵件">
+				<input class="mustAns1 email" type="text" placeholder="你的電子郵件">
 				<p class="question__must">這是必填問題</p>	
 			</div>
 			<div class="main__question">
 				<h3>暱稱 *</h3>
 				<p>該如何稱呼你</p>
-				<input type="text" placeholder="您的回答">
+				<input class="mustAns2 nickname" type="text" placeholder="您的回答">
 				<p class="question__must">這是必填問題</p>	
 			</div>
-			<div class="main__question">
-				<h3>報名類型</h3>
-				<input type="radio">從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）<br>
-				<input type="radio">在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）<br>
+			<div class="main__question radio">
+				<h3>報名類型 *</h3>
+				<input class="mustAns__radio1" type="radio" name="regisType" value="notWork">
+				<p class='radio'>從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付</p>
+				<br>
+				<input class="mustAns__radio2" type="radio" name="regisType" value="atWork">
+				<p class="radio">在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還</p>	
+				<p class="question__must mustAns_radio_p">這是必填問題</p>				
 			</div>
 			<div class="main__question">
 				<h3>現在的職業 *</h3>
 				<p>範例：學生、前端工程師、待業中、業務</p>
-				<input type="text" placeholder="您的回答">
+				<input class="mustAns3" type="text" placeholder="您的回答">
 				<p class="question__must">這是必填問題</p>	
 			</div>
 			<div class="main__question">
 				<h3>是否有程式相關背景？ *</h3>
 				<p>範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</p>
-				<input type="text" placeholder="您的回答">
+				<input class="mustAns4" type="text" placeholder="您的回答">
 				<p class="question__must">這是必填問題</p>	
 			</div>
 			<div class="main__question">
 				<h3>其他</h3>
 				<p>任何你想說的</p>
 				<input type="text" placeholder="您的回答">
-				<p class="question__must"></p>	
+				<p> </p>	
 			</div>
-			<input class="btn__main" type="submit" value="Submit">
+			<input class="btn__submit" type="submit" value="提交">
 			<div>
-				<p>請勿利用 Google 表單送出密碼。</p>
+				<p class="end">請勿利用 Google 表單送出密碼。</p>
 			</div>	
 		</div>	
 
 <!-- 旁邊的固定驚嘆號 -->
 		<div class="warn">
-<!-- 			<img class="warn" src="61952.svg" alt="warning"> -->
+			<img class="warn__sign" src="61952.svg" alt="warning">
+			<div class="warn__signHide">向Google回報問題</div>
 		</div>
 <!-- 最尾巴的資訊欄	 -->
 		<footer class="footer">
-				<p>Google 並未認可或建立這項內容。 檢舉濫用情形 - 服務條款 - 其他條款</p>
-				<div>Google 表單</div>
+			<p>Google 並未認可或建立這項內容。 檢舉濫用情形 - 服務條款 - 其他條款</p>
+			<div>Google 表單</div>
 		</footer>
-
-		
+		<button class="test" value="test"></button>
+		<script>
+		document.querySelector('.warn').addEventListener('mouseover', function(){
+			document.querySelector('.warn__signHide').style.display= 'block';
+			document.querySelector('.warn__signHide').style.transition= 'opacity 1s linear;';
+			})
+		document.querySelector('.warn').addEventListener('mouseleave', function(){
+			document.querySelector('.warn__signHide').style.display='none';
+			})
+		</script>
+		<script src="wk4hw2_Form.js"></script>
 	</body>
 	</html>	

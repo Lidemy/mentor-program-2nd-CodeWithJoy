@@ -2,18 +2,15 @@
 	margin: 0px;
 	background-color: #F9EDE6;
 	height: 267px;
-	background-image: url('05_leafpattern.jpg'),
-						 url('05_leafpattern.jpg');
+	background-image: url('05_leafpattern.jpg');
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	font-family: Roboto;
+	background-size: 100% 60%;
+	font-family: Arial;
 }
 
 .main{
-	margin: 0 auto;
+	margin: 200px auto 10px auto;
 	max-width:640px;
-	position: relative;
-	top: 96px;
 	background-color: white;
 	border-top: 5px solid orange;
 
@@ -22,23 +19,54 @@
 .main__title{
 	max-width:609px;
 	margin: 0px 20px;
-	border: 1px solid;
 }
 .main__title h3{
-	font-size: 34px;
+	font-size: 40px;
 }
 
 .main__question{
-	margin: 0px 20px;
-	border: 1px solid;
+	margin: 2px 20px;
+	padding: 10px;
+	box-sizing: border-box;
+
 }
-.btn__main{
+.btn__submit{
 	margin-left: 20px;
+	margin-top: 50px;
+	width: 90px;
+	height: 40px;
+	border-bottom: none;
+	background-color: #156DF9;
+	border-radius: 4px;
+	color: white;
 
 }
 p.must{
 	color: red;
 }
+
+.question__must{
+	visibility: hidden;
+	color: red;
+	
+}
+
+input{
+	font-size: 15px;
+	border: 1px #c0c0c0; 
+	border-bottom-style: solid;
+	border-top-style: none;
+	border-left-style:none;
+	border-right-style:none;
+}
+.main__question input:focus{
+	border: 3px solid red;
+	border-bottom-style: solid;
+	border-top-style: none;
+	border-left-style:none;
+	border-right-style:none;
+}
+
 .footer{
 	display: block;
 	margin: auto;
@@ -47,7 +75,7 @@ p.must{
 	max-width:640px;
 	height: 300px;
 	background-color: #F9EDE6;
-	border: 1px solid red;
+
 }
 .footer p{
 	font-size: 12px;
@@ -61,13 +89,52 @@ p.must{
 	position: fixed;
 	left: 20px;
 	bottom: 20px;
-	width: 17px;
-	height: 17px;
-	transform:scaleX(-1)
-	background-image: url('05_leafpattern.jpg');
+}
+.warn__sign{
+	width: 25px;
+	height: 25px;
+	transform:scaleX(-1);
+}
+
+.warn__sign:hover{
+	cursor: pointer;
 
 }
 
-.warn:hover{
+.warn__signHide{
+	display: none;
+	position: absolute;
+	left: 50px;
+	bottom: 5px;
+	background-color: black;
+	font-size: 11px;
+	color: white;
+	width: 95px;
+	height: 25px;
+	text-align: center;
+	padding-top: 3px;
+	padding-right: 1px;
+	box-sizing: border-box;
+	transition: transform 3s ease-in
 
+}
+input[type="radio"]{
+	position: relative;
+	bottom: 12px;
+}
+p.radio{
+	display: inline-block;
+	margin: 8px 0px;
+	width: 540px;
+	height:40px;
+}
+
+p.end{
+	font-size: 12px;
+	padding: 50px 20px;
+	color: #929292;
+
+}
+.footer p{
+	color: #5E5E5E;
 }
