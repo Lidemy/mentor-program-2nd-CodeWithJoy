@@ -13,8 +13,6 @@ plus.addEventListener('click', ()=>{
 	console.log(count);
 })
 
-
-
 var minus = document.querySelector('.minus')
 minus.addEventListener('click', ()=>{
 	var showNum = parseInt(show.innerText);
@@ -23,7 +21,6 @@ minus.addEventListener('click', ()=>{
 	show.innerText = '';
 	console.log(count);
 })
-
 
 var time = document.querySelector('.time')
 time.addEventListener('click', ()=>{
@@ -58,21 +55,17 @@ ac.addEventListener('click', ()=>{
 
 /*--步驟
 按plus:
-1.紀錄原showNum在某arr上，
-2.清空show的內容 //
-3.輸入新showNum
-4.原showNum+ 新showNum
+1.紀錄原showNum在某arr上， 2.清空show的內容  3.輸入新showNum 4.原showNum+ 新showNum
 --*/
 
 //數字原料
-document.querySelector('.zero').addEventListener("click", ()=>{
-		show.innerText +='0'
+for (let i = 0; i < 10; i++) { //i的變數要用let設置，不能用var!!! 
+	document.querySelector('.num'+i).addEventListener("click", ()=>{
+		show.innerText += i
 })
-document.querySelector('.one').addEventListener("click", ()=>{
-		show.innerText +='1'
-})
+}
 
-// 雖可利用下式把按AC產生的0清掉，但如此每次重新按1都會清空count值，沒找到解法。
+//備註： 雖可利用下式把按AC產生的0清掉，但如此每次重新按1都會清空count值，沒找到解法。
 // document.querySelector('.one').addEventListener("click", ()=>{
 // 	if (show.innerText ='0') {
 // 		show.innerText ='';
@@ -82,32 +75,6 @@ document.querySelector('.one').addEventListener("click", ()=>{
 // 	}
 // })
 
-document.querySelector('.two').addEventListener("click", ()=>{
-		show.innerText += "2";
-
-})
-document.querySelector('.three').addEventListener("click", ()=>{
-	show.innerText += "3"; 
-})
-document.querySelector('.four').addEventListener("click", ()=>{
-	show.innerText += "4"; 
-})
-document.querySelector('.five').addEventListener("click", ()=>{
-	show.innerText += "5"; 
-})
-document.querySelector('.six').addEventListener("click", ()=>{
-	show.innerText += "6"; 
-})
-document.querySelector('.seven').addEventListener("click", ()=>{
-	show.innerText += "7"; 
-})
-document.querySelector('.eight').addEventListener("click", ()=>{
-	show.innerText += "8"; 
-})
-document.querySelector('.nine').addEventListener("click", ()=>{
-	show.innerText += "9"; 
-})
 
 
-add = (a,b) => a+b;
 
