@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculation</title>
+	<link rel="stylesheet" href="wk4hw1_cal.css">
+
+</head>
+<body class="body">
+	<div class="outer">
+		<div class="main">
+			<div class="main__show">
+				<p id="show">0</p>
+			</div>
+			<div class="main__content">
+				<div class="main__btn">
+					<div class="main__btnContent num ac">AC</div>
+					<div class="space"></div>
+					<div class="main__btnContent num devide">÷</div>
+				</div>
+				<div class="main__btn">
+					<div class="main__btnContent num num7">7</div>
+					<div class="main__btnContent num num8">8</div>
+					<div class="main__btnContent num num9">9</div>
+					<div class="main__btnContent num time">×</div>
+				</div>
+				<div class="main__btn">
+					<div class="main__btnContent num num4">4</div>
+					<div class="main__btnContent num num5">5</div>
+					<div class="main__btnContent num num6">6</div>
+					<div class="main__btnContent num minus">-</div>
+				</div>
+				<div class="main__btn">
+					<div class="main__btnContent num num1">1</div>
+					<div class="main__btnContent num num2">2</div>
+					<div class="main__btnContent num num3">3</div>
+					<div class="main__btnContent num plus">+</div>
+				</div>
+				<div class="main__btn">
+					<div class="main__btnContent num num0">0</div>
+					<div class="main__btnContent num point">.</div>
+					<div id="equal" class="equal">=</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script>
+
+/*-- 不知為何用className一直選不到元素？ 用ID就可以！！？
+	var equal = document.querySelector('#equal');
+	equal.addEventListener("click", function(){
+	document.getElementByClassName('main__show').innerHTML = "hi";})
+--*/	
+	</script>
+	<script src="wk4hw1_cal.js"></script>	
+</body>
+</html>
