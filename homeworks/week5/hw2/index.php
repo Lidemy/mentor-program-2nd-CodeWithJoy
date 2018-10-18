@@ -103,7 +103,7 @@ if(!isset($_COOKIE["name"])) {
   <script>
   function logout(){
   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-  window.location = 'http://localhost:8080/CodeWithJoy/login.php';
+  window.location = 'login.php';
   }
   </script>
 

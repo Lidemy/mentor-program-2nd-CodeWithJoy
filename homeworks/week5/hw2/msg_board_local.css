@@ -1,7 +1,7 @@
 .body{
 	background-color: #FFDBD4;
 	font-family: Arial;
-	background-image: url('/CodeWithJoy/whales_x912.jpg');
+	background-image: url('whales_x912.jpg');
 	background-size: 50%;
 
 }
@@ -228,4 +228,18 @@ h2{
 h4{
 	color: rgb(153, 12, 13);
 	text-align: center;
+}
+
+.regisXXX{
+	margin: 0px auto;
+	text-align: center;
+}
+input.regisBtn{
+	margin-bottom: 10px;
+	font-size: 14px;
+	background-color:rgb(78, 80, 207);
+	color: white;
+	width: 75px;
+	height: 30px;
+	border-radius: 5px;
 }

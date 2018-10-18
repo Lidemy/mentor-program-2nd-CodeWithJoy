@@ -60,13 +60,17 @@ if(isset($acc)){
     if($conn->query($sql)->num_rows > 0){    //表示有資料符合
 		setcookie("name", $name , time()+3600*24); //設置cookie
 		//setcookie("name", '$conn->query("SELECT username FROM joy_board_register WHERE account = "$acc" && password = "$pwd" ")->fetch_assoc()['username']',time()+3600*24)
-		header('Location: index.php');
+		header('Location: http://mentor-program.co/CodeWithJoy/CodeWithJoy/index.php');
     }else{
 		echo "<h4>登入失敗，帳號或密碼錯誤</h4>"; 
     }
 }
 	?>
 	<br>
+	<div class="regisXXX">
+		<span class="regisBtn">還木有帳號？</span> 
+		<input type="button" onclick="goToRegis()" value="點我註冊" class="regisBtn"/> 
+	</div>
 	<div class="forget"> <a href="">Forgot password?</a></div>
 </div>
 
@@ -78,6 +82,10 @@ function formReset()  //用於btn"清除重填""
   {
   document.querySelector(".login").reset()
   }
+function goToRegis()//跳轉register.php
+   {
+		window.location = 'register.php';
+	 }
 </script>
 </body>
 </html>
