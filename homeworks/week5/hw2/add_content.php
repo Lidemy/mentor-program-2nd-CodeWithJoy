@@ -1,17 +1,17 @@
 <?php
 require_once('conn.php');
 
-$name = $_POST['username'];
+$name = $_COOKIE["name"];
 $hashtags = $_POST['hashtags'];
 $content = $_POST['content'];
 
 // 插入主留言
-$sql = "INSERT INTO msg_board_content (username, hashtags, content, parent_id) VALUES ('$name','$hashtags','$content','0')";
-if($conn->query($sql) === true){
-	echo '留言成功';
+$sql = "INSERT INTO joy_board_content (username, hashtags, content, parent_id) VALUES ('$name','$hashtags','$content','0')";
+
+if ($_COOKIE["name"]==NULL or $_POST['content']==NULL){
 	header('Location: index.php');
-}else{
-	echo '留言失敗';
+} else{
+	$conn->query($sql);
 	header('Location: index.php');
 }
 
