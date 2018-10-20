@@ -18,20 +18,22 @@ if($conn->connect_error){
 <body class="body">
 <!-- 歡迎光臨的看版 -->
 
-<?
-//驗證是否有cookie
+  <h1 class="h1"> Welcome to 嘴魚留言板!</h1>
+  <?
+//驗證是否有cookie，並添加登入or登出按鈕
 if(!isset($_COOKIE["name"])) {
-    echo "not login"; //這行應該沒有用
-/*     header('Location: login.php'); */
+    echo "您還沒登入，只能回覆留言喔！";
+    echo  '<div class="logoutBtn">
+              <input type="button" name="logout" value="登入留言" class="logout" onclick="logout()" >
+            </div>';
+}else{
+    echo  '<div class="logoutBtn">
+            <input type="button" name="logout" value="按我登出" class="logout" onclick="logout()" >
+          </div>';
 }
 ?>
 
-  <h1 class="h1"> Welcome to 嘴魚留言板!</h1>
-  <div class="logoutBtn">
-    <input type="button" name="logout" value="登出" class="logout" onclick="logout()" >
-  </div>
 <!-- 我要留言區塊   -->
-
   <div class="msg">
     <div class="title">我要留言</div>
     <div class="user">
@@ -105,6 +107,12 @@ if(!isset($_COOKIE["name"])) {
   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
   window.location = 'login.php';
   }
+
+if(document.cookie = ""){
+  document.querySelector(".msg").style.display = "none"; //沒有登入的話，不顯示留言方塊
+}else{
+  
+}
   </script>
 
 
