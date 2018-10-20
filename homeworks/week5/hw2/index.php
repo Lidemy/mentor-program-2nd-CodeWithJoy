@@ -34,7 +34,13 @@ if(!isset($_COOKIE["name"])) {
 ?>
 
 <!-- 我要留言區塊   -->
-  <div class="msg">
+<? //留言板
+if(!isset($_COOKIE['name'])){
+  echo '<div class="msg" style = "display:none">';
+}else{
+  echo '<div class="msg" style = "display:block">';
+}
+?>
     <div class="title">我要留言</div>
     <div class="user">
       <form  action="add_content.php" method="post" class="user__msg">
@@ -47,7 +53,8 @@ if(!isset($_COOKIE["name"])) {
          <input class="submit allBtn" type="submit" value="留言" /> 
       </form>
     </div>
-  </div>
+</div>
+
 
 
 <!-- 留言主內容 -->
@@ -102,17 +109,12 @@ if(!isset($_COOKIE["name"])) {
  </div>
 <!-- 著作權處 -->
   <footer class="footer"></footer>
+
   <script>
   function logout(){
   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
   window.location = 'login.php';
   }
-
-if(document.cookie = ""){
-  document.querySelector(".msg").style.display = "none"; //沒有登入的話，不顯示留言方塊
-}else{
-  
-}
   </script>
 
 

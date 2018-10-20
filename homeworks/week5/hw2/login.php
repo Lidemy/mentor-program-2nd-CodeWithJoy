@@ -29,9 +29,11 @@ require_once('conn.php');
 //上面這行抓db裡面的username
 @$acc =$_POST['account']; 
 @$pwd = $_POST['password'];
-@$name = $conn->query("SELECT username FROM joy_board_register WHERE account = '$acc' && password = '$pwd' ")->fetch_assoc()['username'];
+
+	$sqlName = "SELECT username FROM joy_board_register WHERE account = '$acc' && password = '$pwd' ";
+	$resultName = $conn->query()->fetch_assoc();
+@$name = $resultName['username'];
 $sql = "SELECT * FROM joy_board_register WHERE account = '$acc' && password = '$pwd' ";
-echo $name;
 //Q: 先驗證是否有值，再跑$conn->query(),否則會一直跑出Notices --> 後來還是失敗，暫時用php的@忽略問題解決
 if(isset($acc)){
     if($conn->query($sql)->num_rows > 0){    //表示有資料符合

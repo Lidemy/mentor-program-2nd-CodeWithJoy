@@ -13,6 +13,7 @@ if($conn->query($sql2) === true){ //留言成功
 	header('Location: index.php');
 }else{  // 留言失敗
 	header('Location: index.php');
+	echo "留言失敗了~";
 }
 
 ?>
