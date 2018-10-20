@@ -18,21 +18,29 @@ if($conn->connect_error){
 <body class="body">
 <!-- 歡迎光臨的看版 -->
 
-<?
-//驗證是否有cookie
+  <h1 class="h1"> Welcome to 嘴魚留言板!</h1>
+  <?
+//驗證是否有cookie，並添加登入or登出按鈕
 if(!isset($_COOKIE["name"])) {
-    echo "not login"; //這行應該沒有用
-/*     header('Location: login.php'); */
+    echo "您還沒登入，只能回覆留言喔！";
+    echo  '<div class="logoutBtn">
+              <input type="button" name="logout" value="登入留言" class="logout" onclick="logout()" >
+            </div>';
+}else{
+    echo  '<div class="logoutBtn">
+            <input type="button" name="logout" value="按我登出" class="logout" onclick="logout()" >
+          </div>';
 }
 ?>
 
-  <h1 class="h1"> Welcome to 嘴魚留言板!</h1>
-  <div class="logoutBtn">
-    <input type="button" name="logout" value="登出" class="logout" onclick="logout()" >
-  </div>
 <!-- 我要留言區塊   -->
-
-  <div class="msg">
+<? //留言板
+if(!isset($_COOKIE['name'])){
+  echo '<div class="msg" style = "display:none">';
+}else{
+  echo '<div class="msg" style = "display:block">';
+}
+?>
     <div class="title">我要留言</div>
     <div class="user">
       <form  action="add_content.php" method="post" class="user__msg">
@@ -45,7 +53,8 @@ if(!isset($_COOKIE["name"])) {
          <input class="submit allBtn" type="submit" value="留言" /> 
       </form>
     </div>
-  </div>
+</div>
+
 
 
 <!-- 留言主內容 -->
@@ -100,6 +109,7 @@ if(!isset($_COOKIE["name"])) {
  </div>
 <!-- 著作權處 -->
   <footer class="footer"></footer>
+
   <script>
   function logout(){
   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";

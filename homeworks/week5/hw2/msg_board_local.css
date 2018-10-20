@@ -20,11 +20,12 @@ div.logoutBtn{
 	border-radius: 5px;
 }
 .logout{
-	width: 80px;
+	border-radius: 5px;
+	width: 90px;
 	height: 40px;
-	background-color: rgb(165, 157, 212);
+	background-color: rgb(25, 25, 104);
 	color: white;
-	font-size: 16px;
+	font-size: 14px;
 }
 .logout:hover {
 	cursor: pointer;
@@ -168,6 +169,12 @@ h2{
 	display: block;
 	text-align: center;
 }
+
+.veri{
+position: absolute;
+	color: red; 
+}
+
 
 /*登入頁面CSS*/
 .loginBody{
