@@ -4,7 +4,6 @@ require_once('conn.php');
 if($conn->connect_error){
   die("Connection failed:".$conn->connect_error);
 }
-
 ?>
 
 <html>
@@ -19,21 +18,27 @@ if($conn->connect_error){
 <!-- 歡迎光臨的看版 -->
   <h1 class="h1"> Welcome to 嘴魚留言板!</h1>
   <?
+$session_id = $_COOKIE['session_id'];
+$name = $_COOKIE['name'];
+$sql_sess = "SELECT * from joy_users_certificate WHERE session_id = '$session_id' "; //client端有db端的session_id
+$result_sess = $conn->query($sql_sess);
+$row_sess = $result_sess->fetch_assoc();
 //驗證是否有cookie，並添加登入or登出按鈕
-if(!isset($_COOKIE["name"])) {
-    echo "您還沒登入，只能回覆留言喔！";
-    echo  '<div class="logoutBtn">
-              <input type="button" name="logout" value="登入留言" class="logout" onclick="logout()" >
-            </div>';
-}else{
-    echo  '<div class="logoutBtn">
+
+if($result_sess->num_rows>0){
+  echo  '<div class="logoutBtn">
             <input type="button" name="logout" value="按我登出" class="logout" onclick="logout()" >
           </div>';
-}
+  }else{
+      echo "您還沒登入，只能回覆留言喔！";
+      echo  '<div class="logoutBtn">
+                <input type="button" name="logout" value="登入留言" class="logout" onclick="logout()" >
+              </div>';
+  }
 ?>
 <!-- 我要留言區塊   -->
 <? //留言板，登入才顯示
-if(!isset($_COOKIE['name'])){
+if($result_sess->num_rows <= 0){ //改用session_id驗證
   echo '<div class="msg" style = "display:none">';
 }else{
   echo '<div class="msg" style = "display:block">';
@@ -99,9 +104,8 @@ if(!isset($_COOKIE['name'])){
             if($result2->num_rows>0){
               while($row2=$result2->fetch_assoc()){
             ?>
-
             <? //該留言的主人讓該區塊顏色變黃
-            if($_COOKIE['name'] !== $row2['username'] ){
+            if($row['username'] === $row2['username'] ){
               echo '<div class="child_post_self">';       
             }else{
               echo '<div class="child_post">';
