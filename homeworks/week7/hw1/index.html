@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wk7hw1</title>
+    <style>
+        .box{
+            background-color: rgb(238, 44, 151);
+            height: 100px;
+        }
+        .container{
+            max-width: 960px;
+            margin: 0px auto;
+            flex-wrap: wrap;
+            
+        }
+        .row{
+            display: flex;
+        }
+        .col-1{
+            width: 80px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .col-2{
+            width: 160px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-3{
+            width: 240px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-4{
+            width: 320px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-5{
+            width: 400px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-6{
+            width: 480px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-7{
+            width: 560px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-8{
+            width: 640px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-9{
+            width: 720px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-10{
+            width: 800px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-11{
+            width: 880px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .col-12{
+            width: 960px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        @media only screen and (max-width: 720px){
+            .row{
+                display: block; /* 讓每個元素變成一格的關鍵 */
+            }
+            
+            [class*="col-"]{  /* 厲害的抓取所有值方法 */
+                background-color: black;
+                width: 100%;
+
+            }
+            .box{
+               
+                height: 100px;
+                background-color: yellow;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container ">
+<!--     12格 -->
+    <div class="row">
+        <div class="col-1">
+            <div class="box">1</div>
+        </div>
+        <div class="col-1">
+            <div class="box">2</div>
+        </div>
+        <div class="col-1">
+            <div class="box">3</div>
+        </div>
+        <div class="col-1">
+            <div class="box">4</div>
+        </div>
+        <div class="col-1">
+            <div class="box">5</div>
+        </div>
+        <div class="col-1">
+            <div class="box">6</div>
+        </div>
+        <div class="col-1">
+            <div class="box">7</div>            
+        </div>
+        <div class="col-1">
+            <div class="box">8</div>            
+        </div>
+        <div class="col-1">
+            <div class="box">9</div>
+        </div>
+        <div class="col-1">
+            <div class="box">10</div>
+        </div>
+        <div class="col-1">
+            <div class="box">11</div>
+        </div>
+        <div class="col-1">
+            <div class="box">12</div>
+        </div>
+    </div>
+<!-- 兩欄 -->
+    <div class="row">
+        <div class="col-6 col-md-12">
+            <div class="box">1</div>
+        </div>
+        <div class="col-6 col-md-12">
+            <div class="box">2</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-7">
+            <div class="box">.col-7</div>
+        </div>
+        <div class="col-5">
+            <div class="box">.col-5</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="box">.col-4</div>
+        </div>
+        <div class="col-4">
+            <div class="box">.col-4</div>
+        </div>
+        <div class="col-4">
+            <div class="box">.col-4</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="box">.col-3</div>
+        </div>
+        <div class="col-3">
+            <div class="box">.col-3</div>
+        </div>
+        <div class="col-3">
+            <div class="box">.col-3</div>
+        </div>
+        <div class="col-3">
+            <div class="box">.col-3</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="box">.col-9</div>
+        </div>
+        <div class="col-3">
+            <div class="box">.col-3</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
