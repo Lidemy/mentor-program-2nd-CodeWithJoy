@@ -10,8 +10,9 @@ require_once('bootstrap.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="msg_board_local.css?">
 	<title>login</title>
-</head>
 
+
+</head>
 
 <body class="loginBody">
 <header></header>
@@ -20,9 +21,10 @@ require_once('bootstrap.php');
 	<h1>登入嘴魚留言板</h1>
 	<h2>Log In to FishBoard</h2>
 	<form action="login.php" method="post" class="login loginForm" name="loginForm">
-		帳號：<input type="text" name="account" class="login"><br>
-		密碼：<input type="password" name="password" class="login"><br>
-		<input type="submit" value="提交" class="allBtn">
+		帳號：<input type="text" name="account" class="login" required><br>
+		密碼：<input type="password" name="password" class="login" required><br>
+		<input type="hidden" name="check" value="check">
+		<input type="submit" value="提交" class="allBtn login">
 		<input type="button" id="test" value='清空重填' onclick="formReset()" class="allBtn">
 	</form>
 	
@@ -30,12 +32,13 @@ require_once('bootstrap.php');
 //上面這行抓db裡面的username
 @$acc = htmlspecialchars($_POST['account'], ENT_QUOTES, 'utf-8');
 @$pwd  = htmlspecialchars($_POST['password'], ENT_QUOTES, 'utf-8');
+@$check = $_POST['check'];
 
-		$stmt = $conn->prepare("SELECT * FROM joy_board_register WHERE account = ? ");
-		$stmt->bind_param("s", $acc);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
+	$stmt = $conn->prepare("SELECT * FROM joy_board_register WHERE account = ? ");
+	$stmt->bind_param("s", $acc);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
 
 @$name = $row['username'];
 @$hash = $row['password'];
@@ -45,17 +48,23 @@ $session_id = uniqid(); //創造session_id
 		$stmt2 = $conn->prepare("INSERT INTO `joy_users_certificate` (`session_id`, `account`) VALUES (?,?)");
 		$stmt2->bind_param("ss", $session_id, $acc);
 
-//Q: 先驗證是否有值，再跑$conn->query(),否則會一直跑出Notices --> 後來還是失敗，暫時用php的@忽略問題解決
-if(isset($acc)){
-	if(password_verify($pwd, $hash)){    //驗證密碼
-		$stmt2->execute();
-		setcookie("name", $name , time()+3600*24); //設置cookie
-		setcookie("session_id", $session_id,time()+3600*24);
-		header('Location: index.php');
-    }else{
-		echo "<h4>登入失敗，帳號或密碼錯誤</h4>"; 
-    }
+
+if($check === 'check'){ //在form中增加一個hidden的按鈕，讀取"傳送表單"這個行為的資料！！（就不用用JS綁定事件再觸發！）
+	if($result->num_rows>0){
+		if(password_verify($pwd, $hash)){    //驗證密碼
+			$stmt2->execute();
+			setcookie("name", $name , time()+3600*24); //設置cookie
+			setcookie("session_id", $session_id,time()+3600*24);
+			header('Location: index.php');
+		}else{
+			echo "<div class='loginWarning'>哎呀，密碼錯了！</div>"; 
+		}
+	}else if($result->num_rows=== 0){
+		echo "<div class='loginWarning'>沒有這個帳號喔！</div>";
+	}	
 }
+
+
 
 	?>
 	<br>
@@ -66,6 +75,7 @@ if(isset($acc)){
 	<div class="forget" style="margin-top:30px"> <a href="">Forgot password?</a></div>
 </div>
 <footer></footer>
+
 <script type="text/javascript">
 
 function formReset()  //用於btn"清除重填""

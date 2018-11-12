@@ -28,8 +28,10 @@ require_once('bootstrap.php');
 	<h1>註冊嘴魚留言板</h1>
 	<h2>Sign Up for FishBoard</h2>
 	<form action="register.php" method="post" class="regisForm"  onsubmit="return validate_form()">
+		<input type="hidden" name="check" value="check">
 		您的暱稱：<input type="text" name="username" class="regis regisName" required>
 		<?
+		@$check = $_POST['check'];
 		//驗證暱稱重複
 		$stmt_name = $conn->prepare("SELECT username FROM joy_board_register WHERE username= ? ");
 		$stmt_name->bind_param("s", $name);
@@ -37,13 +39,16 @@ require_once('bootstrap.php');
 		$result_name = $stmt_name->get_result();
 		$row_name = $result_name->fetch_assoc();
 
-			if(isset($name)){ 
+		if($check === 'check'){ //驗證表單是否送出-->用隱藏按鈕送出資訊～～
+			if(isset($name) && $name !==Null){ 
 				if($result_name->num_rows>0 ){		
 					echo "<span class='veri'>暱稱重複</span>";
 				}else{
 					echo "<span class='veri'>可使用此暱稱</span>";
 				}
 			}
+		}	
+		
 			
 		?>
 		<br>
@@ -58,11 +63,13 @@ require_once('bootstrap.php');
 		$result_acc = $stmt_acc->get_result();
 		$row_acc =$result_acc->fetch_assoc();
 
-		if(isset($acc)){
-			if($result_acc->num_rows>0 ){		
-				echo "<span class='veri'>帳號重複</span>";
-			}else{
-				echo "<span class='veri'>可使用此帳號</span>";
+		if($check === 'check'){
+			if(isset($acc) && $acc !==Null ){
+				if($result_acc->num_rows>0 ){		
+					echo "<span class='veri'>帳號重複</span>";
+				}else{
+					echo "<span class='veri'>可使用此帳號</span>";
+				}
 			}
 		}
 		?>
