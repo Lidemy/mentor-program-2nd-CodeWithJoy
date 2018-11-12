@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wk7hw2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    .btn-done-success{
+        background-color: rgb(150, 221, 164);
+        order: 10;
+    }
+    
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- 輸入框 -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-toDo">To do</span>
+            </div>
+            <input type="text" id="myInput" class="form-control" placeholder="Enter events...">
+        </div>
+        <!-- 代辦清單 -->
+        <ul class="list-group" id= "myList">
+            <li class="list-group-item d-flex justify-content-between">Cras justo odio
+                <div>
+                    <button type="button" class="btn btn-success btn-done">Done</button>
+                    <button type="button" class="btn btn-danger btn-delete">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+<script>
+    $(document).ready(function() {
+        $("#myInput").on("keydown",function(){
+            var value = $("#myInput").val();
+            if (event.which == 13) {  //偵測enter鍵！
+                $("#myList").append(
+                "<li class='list-group-item d-flex justify-content-between'>" + 
+                value + 
+                '<div> <button type="button" class="btn btn-success btn-done">Done</button><span> </span>'+
+                '<button type="button" class="btn btn-danger btn-delete">Delete</button></div>'
+                );
+            }
+        })
+        //done按鈕-綠
+        $("ul").on("click", ".btn-done",function(){
+            $(this).parent().parent().addClass("btn-done-success")
+            $(this).parent().html('<button type="button" class="btn btn-primary">Undone</button> <span> </span> <button type="button" class="btn btn-danger btn-delete">Delete</button></div>')
+            
+        })
+        //delet按鈕-紅
+        $("ul").on("click", ".btn-delete",function(e){  //抓父元素，再綁定動態新增的元件，才能抓到新增的值-->delegate代理
+            $(this).parent().parent().remove();
+        })
+
+        //undone按鈕-藍
+        $("ul").on("click", ".btn-primary", function (e) {
+            $(this).parent().parent().removeClass("btn-done-success")
+            $(this).parent().html('<button type="button" class="btn btn-success btn-done">Done</button> <span> </span> <button type="button" class="btn btn-danger btn-delete">Delete</button></div>')
+         })
+
+        
+        
+    }) //ready的尾巴
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+</body>
+</html>
