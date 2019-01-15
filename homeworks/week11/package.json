@@ -1,0 +1,17 @@
+{
+  "name": "week11",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./hw1/index.js"
+  },
+
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.7"
+  }
+}

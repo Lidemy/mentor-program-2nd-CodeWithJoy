@@ -1,0 +1,26 @@
+{
+  "name": "week9",
+  "version": "1.0.0",
+  "description": "week9hw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Coding Joy",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.4.5",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "postcss": "^7.0.11",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
+  }
+}
