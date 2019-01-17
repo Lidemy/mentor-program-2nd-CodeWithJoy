@@ -37,7 +37,34 @@ console.log(queue.pop()) // 1
 console.log(queue.pop()) // 2
 
 
-
-
-
-
+// 舊寫法
+/*
+function Stack(){
+    const list = [];
+    return {
+        push: (n) => {
+            const index = list.length || 0;
+            list[index] = n;
+        },
+        pop: () => {
+            const num = list[list.length-1];
+            list.splice(list.length-1, 1);
+            return num;
+        }
+    }
+}
+function Queue(){
+    let list = [];
+    return {
+        push: (n) => {
+            const index = list.length || 0;
+            list[index] = n;
+        },
+        pop: () => {
+            const [num, ...rest] = list;
+            list = rest;
+            return num;
+        }
+    }
+}
+*/
